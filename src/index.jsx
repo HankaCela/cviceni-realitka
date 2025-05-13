@@ -1,33 +1,23 @@
-import './style.css';
+import { render } from '@czechitas/render';
+import { Header } from '../components/Header';
+import { Estate } from '../components/Estate';
 import '../global.css';
 import './index.css';
 
-import { Header } from './components/Header.jsx';
-import { Estate } from './components/Estate.jsx';
+const actualEstate = window.location.pathname // vrátí aktuální název stránky
 
-const root = document.querySelector('#root');
+const response = await fetch('https://apps.kodim.cz/daweb/trening-api/apis/realitka/'+actualEstate+'')
+const estateData = await response.json()
 
-// Zjistíme, na které stránce jsme (dum01.html → dum01)
-const pathname = window.location.pathname;
-const page = pathname.split('/').pop().replace('.html', '');
+document.querySelector('#root').innerHTML = render(
+  <div className="container">
+    <Header title={estateData.title} />
+    <main>
+      <Estate estateDetail={estateData} />
+    </main>
 
-// Sestavíme URL
-const apiUrl = `https://apps.kodim.cz/daweb/trening-api/apis/realitka/${page}`;
-
-// Definujeme aplikaci
-const App = (estate) => (
-  <>
-    <Header />
-    <Estate estate={estate} />
-  </>
+    <footer>
+      <p>Copyright 2025</p>
+    </footer>
+  </div>
 );
-
-// Stáhneme data a vykreslíme
-fetch(apiUrl)
-  .then((res) => res.json())
-  .then((data) => {
-    render(<App {...data} />, root);
-  })
-  .catch((error) => {
-    root.innerHTML = `<p>Chyba při načítání dat: ${error.message}</p>`;
-  });

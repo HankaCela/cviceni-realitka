@@ -9,7 +9,8 @@ html {
 }
 
 .container {
-  max-width: 20rem;
+  max-width: 50rem;
   margin-right: auto;
   margin-left: auto;
+  display: block;
 }

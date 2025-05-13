@@ -1,28 +1,19 @@
-body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f9f9f9;
-}
-
 header {
-  background-color: #f0f0f0;
-  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
 }
 
-nav a {
-  margin-right: 1rem;
-  text-decoration: none;
-  color: #333;
+.logo {
+  width: 10rem;
+  height: 10rem;
+  background-image: url(../img/rocket.svg);
+  background-size: contain;
 }
 
-main {
-  padding: 1rem;
-}
-
-.estate__photo {
-  width: 100%;
-  max-width: 600px;
+footer {
+  border-top: 1px solid black;
   display: block;
-  margin: 1rem 0;
+  clear: left;
 }

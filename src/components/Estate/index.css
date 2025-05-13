@@ -1,0 +1,39 @@
+/* Styl pro komponentu Estate */
+.estate {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.estate h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.estate__photo {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.estate p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+.estate section h3 {
+  font-size: 1.5em;
+  margin-top: 20px;
+}
+
+.estate a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.estate a:hover {
+  text-decoration: underline;
+}
